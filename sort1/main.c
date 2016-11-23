@@ -3,35 +3,31 @@
 #include <string.h>
 #include "sort.h"
 
-const int maxlen1= 1000;
+const int stringMaxLen = 1000;
 
 int main(int argc, char **argv)
 {
-
-    int n;
-    char *numofstrch = malloc(maxlen1 * sizeof(char));
-    char *filestr = malloc(maxlen1 * sizeof(char));
-    //printf("enter the Number of lines\n");
-    //gets(numofstrch);
-    n = atoi(argv[1]);
-    //printf("enter the name of file\n");
+    int realNumberStr = 0;
+    int i;
+    int numberOfStr;
+    char *filestr = malloc(stringMaxLen * sizeof(char));
+    numberOfStr = atoi(argv[1]);
     filestr = argv[2];
     freopen(filestr, "r", stdin);
-    /*freopen("output.txt", "w", stdout);
-    fscanf(stdin, "%d\n", &n);*/
-    int k = 0;
-    int i;
-    char **a = malloc(n * sizeof(char*));
-    for (i = 0; i < n; i++)
-        a[i] = malloc(maxlen1 * sizeof(char));
-    for (i = 0; i < n; i++)
+
+    char **arrStr = malloc(numberOfStr * sizeof(char*));
+    for (i = 0; i < numberOfStr; i++)
+        arrStr[i] = malloc(stringMaxLen * sizeof(char));
+
+    for (i = 0; i < numberOfStr; i++)
     {
-        if (feof(stdin)) break;
-        fgets(a[i], maxlen1, stdin);
+        if (feof(stdin))
+            break;
+        fgets(arrStr[i], stringMaxLen, stdin);
         char *pos;
-if ((pos = strchr(a[i], '\n')) != NULL)
-*pos = '\0';
-        k++;
+        if ((pos = strchr(arrStr[i], '\n')) != NULL)
+            *pos = '\0';
+        realNumberStr++;
     }
 
     fclose(stdin);
@@ -43,39 +39,37 @@ if ((pos = strchr(a[i], '\n')) != NULL)
 
     switch(method)
     {
-    case 1:
+        case 1:
         {
-            bubble(a, k);
+            bubble(arrStr, realNumberStr);
             break;
         }
-    case 2:
+        case 2:
         {
-            mergesort(a, 0, k - 1);
+            mergeSort(arrStr, 0, realNumberStr - 1);
             break;
         }
-    case 3:
+        case 3:
         {
-            insertSort(a, k);
+            insertSort(arrStr, realNumberStr);
             break;
         }
-    case 4:
+        case 4:
         {
-            quicksort(a, 0, k - 1);
+            quicksort(arrStr, 0, realNumberStr - 1);
             break;
         }
-    default:
+        default:
         {
             break;
         }
         break;
     }
 
-    for (i = 0; i < k; i++)
-    {
-        puts(a[i]); //, stdout);
-        puts("\n"); //, stdout);
-        }
-    //fclose(stdout);
+    for (i = 0; i < realNumberStr; i++) {
+        puts(arrStr[i]);
+        puts("\n");
+    }
 
 return 0;
 }
