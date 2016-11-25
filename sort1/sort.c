@@ -66,13 +66,11 @@ void merge(char **arr, int left, int middle, int right)
 
     for (i = 0; i < n1; i++)
     {
-        leftBuff[i] = malloc((maxlen) * sizeof(char));
         leftBuff[i] = arr[left + i];
     }
 
     for (j = 0; j < n2; j++)
     {
-        rightBuff[j] = malloc((maxlen) * sizeof(char));
         rightBuff[j] = arr[middle + 1 + j];
     }
 

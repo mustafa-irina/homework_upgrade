@@ -10,9 +10,14 @@ int main(int argc, char **argv)
     int realNumberStr = 0;
     int i;
     int numberOfStr;
-    char *filestr = malloc(stringMaxLen * sizeof(char));
+
+    char *methodStr = malloc(stringMaxLen * sizeof(char));
+    printf("Choose the method of sorting:\n1 for BubbleSort\n2 for MergeSort\n3 for InsertionSort\n4 for QuickSort\n");
+    fgets(methodStr, stringMaxLen, stdin);
+    int method = atoi(methodStr);
+
+    char *filestr = argv[2];
     numberOfStr = atoi(argv[1]);
-    filestr = argv[2];
     freopen(filestr, "r", stdin);
 
     char **arrStr = malloc(numberOfStr * sizeof(char*));
@@ -32,10 +37,6 @@ int main(int argc, char **argv)
 
     fclose(stdin);
     freopen("CON", "r", stdin);
-
-    int method;
-    printf("Choose the method of sorting:\n1 for BubbleSort\n2 for MergeSort\n3 for InsertionSort\n4 for QuickSort\n");
-    scanf("%d", &method);
 
     switch(method)
     {
@@ -71,5 +72,10 @@ int main(int argc, char **argv)
         puts("\n");
     }
 
-return 0;
+    for (i = 0; i < numberOfStr; i++)
+        free(arrStr[i]);
+    free(arrStr);
+    free(methodStr);
+
+    return 0;
 }
