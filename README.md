@@ -55,3 +55,14 @@ granularity: each sample hit covers 2 byte(s) for 14.22% of 0.07 seconds
  [2] |  100.0 |  0.00 |  0.07 |  0+849424 |  mergeSort  [2]
  |  |  0.07 |  0.00 |  424711/424711 |  merge  [1]
  |  |  |  |  849424 |  mergeSort  [2]
+ 
+ 
+ Flat  profile:
+
+
+
+Each sample counts as 0.01 seconds.
+
+   time | cumulative seconds | self seconds | calls | self Ts/call | total Ts/call | name 
+------ | ------ | ------ | ------ | ------ | ------ | ------ 
+ 100.46 |  6.44 |  6.44 |  |  |  |  insertSort
