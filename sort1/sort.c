@@ -33,7 +33,7 @@ void quicksort(char **arr, int first, int last)
     int i = first;
     int j = last;
     char *p = arr[(first + last) / 2];
-    if (i <= j)
+    while (i <= j)
     {
         while (strcmp(arr[i], p) < 0)
             i++;
