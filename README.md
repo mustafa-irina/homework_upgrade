@@ -66,3 +66,14 @@ Each sample counts as 0.01 seconds.
    time | cumulative seconds | self seconds | calls | self Ts/call | total Ts/call | name 
 ------ | ------ | ------ | ------ | ------ | ------ | ------ 
  100.46 |  6.44 |  6.44 |  |  |  |  insertSort
+
+
+Flat  profile:
+
+
+
+Each sample counts as 0.01 seconds.
+
+   time | cumulative seconds | self seconds | calls | self Ts/call | total Ts/call | name 
+------ | ------ | ------ | ------ | ------ | ------ | ------ 
+ 100.46 |  24.02 |  24.02 |  |  |  |  bubble 
